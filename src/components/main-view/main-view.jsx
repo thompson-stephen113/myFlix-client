@@ -9,7 +9,12 @@ export const MainView = () => {
 
     useEffect(() => {
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/movies")
-            .then((response) => response.json())
+            .then((response) => {
+                if(!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
             .then((data) => {
                 const moviesFromApi = data.map((movie) => {
                     return {
@@ -32,6 +37,9 @@ export const MainView = () => {
                 });
 
                 setMovies(moviesFromApi);
+            })
+            .catch((err) => {
+                console.error("Fetch error:", err);
             });
     }, []);
 
