@@ -41837,8 +41837,8 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            username: username,
+            password: password
         };
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/login", {
             method: "POST",
@@ -41954,7 +41954,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"bSQJD","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2ZIk2","./login-view.scss":"e57ax"}],"e57ax":[function() {},{}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./login-view.scss":"e57ax","@parcel/transformer-js/src/esmodule-helpers.js":"bSQJD","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2ZIk2"}],"e57ax":[function() {},{}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42156,6 +42156,6 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"bSQJD","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2ZIk2","./signup-view.scss":"6Z19M"}],"6Z19M":[function() {},{}],"eBaMl":[function() {},{}],"lJZlQ":[function() {},{}]},["3Hk1N","1pbGB","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./signup-view.scss":"6Z19M","@parcel/transformer-js/src/esmodule-helpers.js":"bSQJD","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2ZIk2"}],"6Z19M":[function() {},{}],"eBaMl":[function() {},{}],"lJZlQ":[function() {},{}]},["3Hk1N","1pbGB","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
