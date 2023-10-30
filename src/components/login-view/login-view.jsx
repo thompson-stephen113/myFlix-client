@@ -1,4 +1,12 @@
+// Login test credentials
+// username: testUsernameh945Dwv3
+// password: testPassword4Yew0d45
+
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+import "./login-view.scss"
 
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
@@ -36,30 +44,34 @@ export const LoginView = ({ onLoggedIn }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username:
-                <input
+        <Form onSubmit={handleSubmit} className="form">
+            <Form.Group controlId="formUsername">
+                <Form.Label className="form-label">Username:</Form.Label>
+                <Form.Control
+                    className="form-control"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
-            </label>
+            </Form.Group>
             <br />
 
-            <label>
-                Password:
-                <input
+            <Form.Group controlId="formPassword">
+                <Form.Label className="form-label">Password:</Form.Label>
+                <Form.Control
+                    className="form-control"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            </label>
+            </Form.Group>
             <br />
             
-            <button type="submit">Submit</button>
-        </form>
+            <Button variant="secondary" className="submit-button" type="submit">
+                Submit
+            </Button>
+        </Form>
     );
 };
