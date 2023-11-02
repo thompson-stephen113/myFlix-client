@@ -5,19 +5,19 @@ import Form from "react-bootstrap/Form";
 import "./signup-view.scss";
 
 export const SignupView = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [Username, setUsername] = useState("");
+    const [Password, setPassword] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Birthday, setBirthday] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
+            Username: Username,
+            Password: Password,
+            Email: Email,
+            Birthday: Birthday
         };
 
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/users", {
@@ -42,7 +42,7 @@ export const SignupView = () => {
                 <Form.Label className="form-label">Username:</Form.Label>
                 <Form.Control
                     type="text"
-                    value={username}
+                    value={Username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                     minLength="3"
@@ -54,7 +54,7 @@ export const SignupView = () => {
                 <Form.Label className="form-label">Password:</Form.Label>
                 <Form.Control
                     type="password"
-                    value={password}
+                    value={Password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
@@ -65,7 +65,7 @@ export const SignupView = () => {
                 <Form.Label className="form-label">Email:</Form.Label>
                 <Form.Control
                     type="email"
-                    value={email}
+                    value={Email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
@@ -76,7 +76,7 @@ export const SignupView = () => {
                 <Form.Label className="form-label">Birthday:</Form.Label>
                 <Form.Control
                     type="date"
-                    value={birthday}
+                    value={Birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />
