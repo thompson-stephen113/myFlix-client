@@ -11,8 +11,8 @@ import "./main-view.scss"
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedToken? storedUser : null);
-    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(storedUser ? storedUser : null);
+    const [token, setToken] = useState(storedToken ? storedToken : null);
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -31,9 +31,10 @@ export const MainView = () => {
                 return response.json();
             })
             .then((data) => {
+                console.log(data);
                 const moviesFromApi = data.map((movie) => {
                     return {
-                        _id: movie.id,
+                        id: movie._id,
                         Title: movie.Title,
                         ImagePath: movie.ImagePath,
                         Description: movie.Description,
@@ -92,7 +93,7 @@ export const MainView = () => {
             ) : (
                 <>
                     {movies.map((movie) => (
-                        <Col className="mb-5" key={movie.id} md={3}>
+                        <Col className="mb-5" key={movie._id} md={3}>
                             <MovieCard
                                 movie={movie}
                                 onMovieClick={(newSelectedMovie) => {
@@ -106,6 +107,3 @@ export const MainView = () => {
         </Row>
     );
 };
-
-
-
