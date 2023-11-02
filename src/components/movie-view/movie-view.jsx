@@ -1,6 +1,7 @@
 import "./movie-view.scss";
 
 export const MovieView = ({ movie, onBackClick }) => {
+    console.log(movie)
     return (
         <div>
             <div>
@@ -40,7 +41,11 @@ export const MovieView = ({ movie, onBackClick }) => {
                 <span>{movie.Director.Birth}</span>
                 <br></br>
                 <span>Death: </span>
-                <span>{movie.Director.Death}</span>
+                {movie.Director.Death ? (
+                    <span>{movie.Director.Death}</span>
+                ) : (
+                    <span>-</span>
+                )}
             </div>
 
             <br></br>
