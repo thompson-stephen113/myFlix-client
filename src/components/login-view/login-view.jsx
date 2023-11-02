@@ -9,15 +9,15 @@ import Form from "react-bootstrap/Form";
 import "./login-view.scss"
 
 export const LoginView = ({ onLoggedIn }) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [Username, setUsername] = useState("");
+    const [Password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
-            username: username,
-            password: password
+            Username: Username,
+            Password: Password
         };
 
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/login", {
@@ -50,7 +50,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 <Form.Control
                     className="form-control"
                     type="text"
-                    value={username}
+                    value={Username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
@@ -62,7 +62,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 <Form.Control
                     className="form-control"
                     type="password"
-                    value={password}
+                    value={Password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
