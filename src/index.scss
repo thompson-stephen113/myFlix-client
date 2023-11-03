@@ -1,5 +1,8 @@
-$color: steelblue;
+$primary: black;
+$secondary: gold;
+$body-bg: gray;
 
-.my-flix {
-    color: $color;
-}
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~./components/signup-view/signup-view.scss";
+@import "~./components/login-view/login-view.scss";
+@import "~./components/main-view/main-view.scss";

@@ -1,0 +1,23 @@
+.form {
+    padding: 10px;
+}
+
+.form-label {
+    color: white;
+}
+
+.form-control {
+    background-color: white;
+
+    &:focus {
+        background-color: white;
+    }
+}
+
+.submit-button {
+    padding: 4px 12px 4px 12px;
+    color: black;
+    background-color: limegreen;
+    border: none;
+    border-radius: 4px;
+}

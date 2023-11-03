@@ -1,19 +1,23 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+import "./signup-view.scss";
 
 export const SignupView = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [Username, setUsername] = useState("");
+    const [Password, setPassword] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Birthday, setBirthday] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
+            Username: Username,
+            Password: Password,
+            Email: Email,
+            Birthday: Birthday
         };
 
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/users", {
@@ -33,53 +37,55 @@ export const SignupView = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-        <label>
-            Username:
-            <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                minLength="3"
-            />
-        </label>
-        <br />
+        <Form onSubmit={handleSubmit} className="form">
+            <Form.Group controlId="formUsername">
+                <Form.Label className="form-label">Username:</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={Username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    minLength="3"
+                />
+            </Form.Group>
+            <br />
 
-        <label>
-            Password:
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
-        </label>
-        <br />
+            <Form.Group>
+                <Form.Label className="form-label">Password:</Form.Label>
+                <Form.Control
+                    type="password"
+                    value={Password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+            </Form.Group>
+            <br />
 
-        <label>
-            Email:
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-        </label>
-        <br />
+            <Form.Group>
+                <Form.Label className="form-label">Email:</Form.Label>
+                <Form.Control
+                    type="email"
+                    value={Email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+            </Form.Group>
+            <br />
 
-        <label>
-            Birthday:
-            <input
-                type="date"
-                value={birthday}
-                onChange={(e) => setBirthday(e.target.value)}
-                required
-            />
-        </label>
-        <br />
+            <Form.Group>
+                <Form.Label className="form-label">Birthday:</Form.Label>
+                <Form.Control
+                    type="date"
+                    value={Birthday}
+                    onChange={(e) => setBirthday(e.target.value)}
+                    required
+                />
+            </Form.Group>
+            <br />
 
-        <button type="submit">Submit</button>
-        </form>
+            <Button variant="secondary" className="submit-button" type="submit">
+                Submit
+            </Button>
+        </Form>
     );
 };

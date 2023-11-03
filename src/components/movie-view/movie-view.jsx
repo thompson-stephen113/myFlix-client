@@ -1,8 +1,11 @@
+import "./movie-view.scss";
+
 export const MovieView = ({ movie, onBackClick }) => {
+    console.log(movie)
     return (
         <div>
             <div>
-                <img src={movie.ImagePath} />
+                <img src={movie.ImagePath} className="h-100" alt="movie poster" />
             </div>
 
             <div>
@@ -38,7 +41,11 @@ export const MovieView = ({ movie, onBackClick }) => {
                 <span>{movie.Director.Birth}</span>
                 <br></br>
                 <span>Death: </span>
-                <span>{movie.Director.Death}</span>
+                {movie.Director.Death ? (
+                    <span>{movie.Director.Death}</span>
+                ) : (
+                    <span>-</span>
+                )}
             </div>
 
             <br></br>
@@ -50,7 +57,13 @@ export const MovieView = ({ movie, onBackClick }) => {
 
             <br></br>
 
-            <button onClick={onBackClick}>Back</button>
+            <button 
+                onClick={onBackClick}
+                className="back-button"
+                style={{ cursor: "pointer" }}
+            >
+                Back
+            </button>
         </div>
     );
 };

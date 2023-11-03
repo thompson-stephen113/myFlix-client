@@ -1,15 +1,23 @@
+// Login test credentials
+// username: testUsernameh945Dwv3
+// password: testPassword4Yew0d45
+
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+import "./login-view.scss"
 
 export const LoginView = ({ onLoggedIn }) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [Username, setUsername] = useState("");
+    const [Password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            Username: Username,
+            Password: Password
         };
 
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/login", {
@@ -36,30 +44,34 @@ export const LoginView = ({ onLoggedIn }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username:
-                <input
+        <Form onSubmit={handleSubmit} className="form">
+            <Form.Group controlId="formUsername">
+                <Form.Label className="form-label">Username:</Form.Label>
+                <Form.Control
+                    className="form-control"
                     type="text"
-                    value={username}
+                    value={Username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
-            </label>
+            </Form.Group>
             <br />
 
-            <label>
-                Password:
-                <input
+            <Form.Group controlId="formPassword">
+                <Form.Label className="form-label">Password:</Form.Label>
+                <Form.Control
+                    className="form-control"
                     type="password"
-                    value={password}
+                    value={Password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            </label>
+            </Form.Group>
             <br />
             
-            <button type="submit">Submit</button>
-        </form>
+            <Button variant="secondary" className="submit-button" type="submit">
+                Submit
+            </Button>
+        </Form>
     );
 };
