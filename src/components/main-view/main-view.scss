@@ -1,14 +1,15 @@
 .row {
     justify-content: center;
 
-    .col-login-signup {
+    .col-login {
         background-color: black;
-    }
-
-    span {
         color: white;
         display: block;
         text-align: center;
+    }
+
+    .col-signup {
+        background-color: black;
     }
 }
 
