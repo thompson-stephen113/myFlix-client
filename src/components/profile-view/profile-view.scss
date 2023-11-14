@@ -1,0 +1,63 @@
+h2 {
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin: 10px;
+    color: white;
+    text-align: left;
+}
+
+.account-update {
+    margin: 15px 0px 10px 0px;
+    font-weight: bold;
+}
+
+.account-delete {
+    margin: 25px 0px 10px 0px;
+    font-weight: 900;
+    color: black;
+}
+
+.favorite-movie {
+    margin: 35px 0px 70px 0px;
+    
+    figure {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        white-space: nowrap;
+        margin: auto;
+        margin-bottom: 15px;
+        
+        .image-button {
+            background-color: none;
+            border: none;
+
+            img {
+                height: 400px;
+                margin: auto;
+                border: 3px solid white;
+            }
+        }
+
+        .figure-caption {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+    }
+
+    .remove-button {
+        display: block;
+        margin: auto;
+        text-align: center;
+        font-weight: bold;
+    }
+}
