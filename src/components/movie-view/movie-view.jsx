@@ -1,69 +1,91 @@
+import { useParams } from "react-router";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import "./movie-view.scss";
 
-export const MovieView = ({ movie, onBackClick }) => {
-    console.log(movie)
+export const MovieView = ({ movies, handleFavorite, removeFavorite }) => {
+    const {Title} = useParams();
+    const movie = movies.find((movie) => movie.Title === Title);
+
+    if (!movie) {
+        return <div>Movie not found</div>
+    }
+
     return (
-        <div>
-            <div>
-                <img src={movie.ImagePath} className="h-100" alt="movie poster" />
+        <div className="movie-view">
+            <div className="image-div">
+                <img className="movie-image" src={movie.ImagePath} alt="movie poster" />
             </div>
+            <br />
 
             <div>
-                <span>Title: </span>
+                <span className="movie-element-label">Title: </span>
                 <span>{movie.Title}</span>
             </div>
+            <br />
 
             <div>
-                <span>Description: </span>
+                <span className="movie-element-label">Description: </span>
                 <span>{movie.Description}</span>
             </div>
-
-            <br></br>
+            <br />
+            <br />
 
             <div>
-                <span>Genre: </span>
+                <span className="movie-element-label">Genre: </span>
                 <span>{movie.Genre.Name}</span>
                 <br></br>
-                <span>Description: </span>
+                <span className="movie-element-label">Description: </span>
                 <span>{movie.Genre.Description}</span>
             </div>
-
-            <br></br>
+            <br />
+            <br />
 
             <div>
-                <span>Director: </span>
+                <span className="movie-element-label">Director: </span>
                 <span>{movie.Director.Name}</span>
                 <br></br>
-                <span>Bio: </span>
+                <span className="movie-element-label">Bio: </span>
                 <span>{movie.Director.Bio}</span>
                 <br></br>
-                <span>Birth: </span>
+                <span className="movie-element-label">Birth: </span>
                 <span>{movie.Director.Birth}</span>
                 <br></br>
-                <span>Death: </span>
+                <span className="movie-element-label">Death: </span>
                 {movie.Director.Death ? (
                     <span>{movie.Director.Death}</span>
                 ) : (
                     <span>-</span>
                 )}
             </div>
-
-            <br></br>
+            <br />
+            <br />
 
             <div>
-                <span>Featured: </span>
+                <span className="movie-element-label">Featured: </span>
                 <span>{movie.Featured}</span>
             </div>
+            <br />
 
-            <br></br>
-
-            <button 
-                onClick={onBackClick}
-                className="back-button"
-                style={{ cursor: "pointer" }}
+            <Button
+                variant="secondary"
+                className="favorite-button"
+                onClick={() => handleFavorite(movie.id)}
             >
-                Back
-            </button>
+                Favorite
+            </Button>
+            <br />
+            
+            <Link to="/">
+                <Button
+                    variant="primary"
+                    className="back-button"
+                    style={{ cursor: "pointer" }}
+                >
+                    Back
+                </Button>
+            </Link>
         </div>
     );
 };
