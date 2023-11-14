@@ -1,7 +1,37 @@
-.back-button {
-    padding: 4px 12px 4px 12px;
+.movie-view {
+    display: block;
+    background-color: black;
     color: white;
-    background-color: limegreen;
-    border: none;
-    border-radius: 4px;
+    padding: 15px;
+    
+    .image-div {
+        display: block;
+        text-align: center;
+
+        .movie-image {
+            border: 3px solid white;
+        }
+    }
+
+    span {
+        text-align: left;
+    }
+
+    .movie-element-label {
+        font-weight: bold;
+    }
+
+    .favorite-button {
+        padding: 4px 12px;
+        margin-bottom: 10px;
+        color: black;
+        font-weight: bold;
+    }
+    
+    .back-button {
+        padding: 4px 12px;
+        color: black;
+        font-weight: bold;
+    }
 }
+
