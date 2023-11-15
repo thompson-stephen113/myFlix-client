@@ -149,7 +149,7 @@ export const MainView = () => {
                                                 <MovieCard 
                                                     movie={movie}
                                                     handleFavorite={handleFavorite}
-                                                    removeFavorite={removeFavorite}
+                                                    // removeFavorite={removeFavorite}
                                                 />
                                             </Col>
                                         ))}
@@ -173,7 +173,7 @@ export const MainView = () => {
                                         <MovieView
                                             movies={movies}
                                             handleFavorite={handleFavorite}
-                                            removeFavorite={removeFavorite}
+                                            // removeFavorite={removeFavorite}
                                         />
                                     </Col>
                                 )}
