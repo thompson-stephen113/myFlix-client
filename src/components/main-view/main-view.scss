@@ -2,14 +2,21 @@
     justify-content: center;
 
     .col-login {
+        display: block;
         background-color: black;
         color: white;
-        display: block;
+        font-weight: bold;
+        font-size: 20px;
         text-align: center;
     }
 
     .col-signup {
+        display: block;
         background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
     }
 }
 
