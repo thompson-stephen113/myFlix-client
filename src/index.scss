@@ -3,7 +3,7 @@ $secondary: salmon;
 $body-bg: gray;
 
 :root {
-    --border-bottom: rgba(255, 255, 255, 0.3);
+    --border-bottom: rgba(255, 255, 255, 0.397);
 }
 
 
@@ -19,7 +19,7 @@ $body-bg: gray;
 .btn,
 .btn-primary,
 .btn-secondary {
-    border-bottom: 2px solid var(--border-bottom);
+    border-bottom: 4px solid var(--border-bottom);
     transition: opacity .2s;
 }
 
@@ -27,5 +27,5 @@ $body-bg: gray;
 .btn-primary:hover,
 .btn-secondary:hover {
     box-shadow: 0 0.5em 0.5em -0.4em var(--border-bottom);
-    transform: translateY(-0.15em);
+    transform: translateY(-0.10em);
 }
