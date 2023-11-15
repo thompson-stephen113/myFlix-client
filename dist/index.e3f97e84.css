@@ -97,10 +97,9 @@ a {
 
 .submit-button {
   color: #000;
-  background-color: #32cd32;
-  border: none;
   border-radius: 4px;
   padding: 4px 12px;
+  font-weight: bold;
 }
 
 .form {
@@ -111,6 +110,7 @@ a {
   color: #fff;
   text-align: left;
   margin: 10px;
+  font-weight: bold;
   display: block;
 }
 
@@ -120,25 +120,22 @@ a {
 
 .submit-button {
   color: #000;
-  background-color: #32cd32;
-  border: none;
   border-radius: 4px;
   padding: 4px 12px;
+  font-weight: bold;
 }
 
 .row {
   justify-content: center;
 }
 
-.row .col-login {
+.row .col-login, .row .col-signup {
   color: #fff;
   text-align: center;
   background-color: #000;
+  font-size: 20px;
+  font-weight: bold;
   display: block;
-}
-
-.row .col-signup {
-  background-color: #000;
 }
 
 h2 {
@@ -205,7 +202,7 @@ h2 {
 }
 
 :root {
-  --border-bottom: #ffffff4d;
+  --border-bottom: #ffffff65;
 }
 
 :root, [data-bs-theme="light"] {
@@ -13413,6 +13410,14 @@ textarea.form-control-lg {
   }
 }
 
+.form-label {
+  color: #fff;
+  text-align: left;
+  margin: 10px;
+  font-weight: bold;
+  display: block;
+}
+
 .form-control, .form-control:focus {
   background-color: #fff;
 }
@@ -13427,10 +13432,9 @@ textarea.form-control-lg {
 
 .submit-button {
   color: #000;
-  background-color: #32cd32;
-  border: none;
   border-radius: 4px;
   padding: 4px 12px;
+  font-weight: bold;
 }
 
 .card {
@@ -13582,25 +13586,23 @@ h2, .h2 {
   justify-content: center;
 }
 
-.row .col-login {
+.row .col-login, .row .col-signup {
   color: #fff;
   text-align: center;
   background-color: #000;
+  font-size: 20px;
+  font-weight: bold;
   display: block;
 }
 
-.row .col-signup {
-  background-color: #000;
-}
-
 .btn, .btn-primary, .btn-secondary {
-  border-bottom: 2px solid var(--border-bottom);
+  border-bottom: 4px solid var(--border-bottom);
   transition: opacity .2s;
 }
 
 .btn:hover, .btn-primary:hover, .btn-secondary:hover {
   box-shadow: 0 .5em .5em -.4em var(--border-bottom);
-  transform: translateY(-.15em);
+  transform: translateY(-.1em);
 }
 
 /*# sourceMappingURL=index.e3f97e84.css.map */

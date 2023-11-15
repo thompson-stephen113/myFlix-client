@@ -27329,8 +27329,7 @@ const MainView = ()=>{
                                             md: 4,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                 movie: movie,
-                                                handleFavorite: handleFavorite,
-                                                removeFavorite: (0, _profileView.removeFavorite)
+                                                handleFavorite: handleFavorite
                                             }, void 0, false, void 0, void 0)
                                         }, movie.id, false, void 0, void 0))
                                 }, void 0, false)
@@ -27352,8 +27351,7 @@ const MainView = ()=>{
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                                         movies: movies,
-                                        handleFavorite: handleFavorite,
-                                        removeFavorite: (0, _profileView.removeFavorite)
+                                        handleFavorite: handleFavorite
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
@@ -48378,7 +48376,7 @@ const LoginView = ({ onLoggedIn })=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                variant: "secondary",
+                variant: "primary",
                 className: "submit-button",
                 type: "submit",
                 children: "Submit"
@@ -48580,7 +48578,7 @@ const SignupView = ()=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                variant: "secondary",
+                variant: "primary",
                 className: "submit-button",
                 type: "submit",
                 children: "Submit"
