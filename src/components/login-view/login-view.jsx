@@ -1,5 +1,5 @@
 // Login test credentials
-// username: testUsernameh945Dwv3
+// username: testUsername1
 // password: testPassword4Yew0d45
 
 import { useState } from "react";
@@ -69,7 +69,11 @@ export const LoginView = ({ onLoggedIn }) => {
             </Form.Group>
             <br />
             
-            <Button variant="secondary" className="submit-button" type="submit">
+            <Button 
+                variant="primary" 
+                className="submit-button" 
+                type="submit"
+            >
                 Submit
             </Button>
         </Form>

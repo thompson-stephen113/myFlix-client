@@ -3,7 +3,11 @@
 }
 
 .form-label {
+    display: block;
+    margin: 10px;
     color: white;
+    font-weight: bold;
+    text-align: left;
 }
 
 .form-control {
@@ -17,7 +21,6 @@
 .submit-button {
     padding: 4px 12px 4px 12px;
     color: black;
-    background-color: limegreen;
-    border: none;
+    font-weight: bold;
     border-radius: 4px;
 }

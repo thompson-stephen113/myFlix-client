@@ -1,0 +1,44 @@
+.card {
+    display: block;
+    margin-top: 15px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    background-color: black;
+
+    .image-link {
+        text-align: center;
+
+        .image-button {
+            margin-bottom: 5px;
+            background-color: none;
+            border: none;
+        }
+
+        .movie-image {
+            border: 3px solid white;
+        }
+    }
+
+    .view-button {
+        display: inline-block;
+        cursor: pointer;
+        margin: auto 5px;
+        color: black;
+        background-color: limegreen;
+        font-weight: bold;
+    }
+
+    .favorite-button {
+        display: inline-block;
+        cursor: pointer;
+        margin: auto 5px;
+        color: black;
+        background-color: salmon;
+        font-weight: bold;
+    }
+}
+
+a {
+    text-decoration: none;
+}

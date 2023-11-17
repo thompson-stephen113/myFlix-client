@@ -1,16 +1,51 @@
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+import "./movie-card.scss"
+
+export const MovieCard = ({ movie, handleFavorite, removeFavorite }) => {
     return (
-        <Card onClick={() => onMovieClick(movie)}>
-            <Card.Img variant="top" src={movie.ImagePath} />
-            <Card.Title>{movie.Title}</Card.Title>
-            <Card.Text>{movie.Director.Name}</Card.Text>
-            <Button onClick={() => onMovieClick(movie)} variant="link">
-                Open
-            </Button>
-        </Card>
+            <Card className="h-100">
+                <Card.Body>
+                    <Link
+                        to={`/movies/${encodeURIComponent(movie.Title)}`}
+                        className="image-link"
+                    >
+                        <Button
+                            variant="link"
+                            className="image-button"
+                            style={{ cursor: "pointer" }}
+                        >
+                            <Card.Img
+                                className="movie-image"
+                                src={movie.ImagePath}
+                                alt={[movie.Title, " movie poster"]}
+                            />
+                        </Button>
+                    </Link>
+                
+                    <Card.Title>{movie.Title}</Card.Title>
+                    <Card.Text>{movie.Director.Name}</Card.Text>
+
+                    <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
+                        <Button
+                            variant="primary"
+                            className="view-button"
+                        >
+                                View
+                        </Button>
+                    </Link>
+                    
+                    <Button
+                        variant="secondary"
+                        className="favorite-button"
+                        onClick={() => handleFavorite(movie.id)}
+                    >
+                        Favorite
+                    </Button>
+                </Card.Body>
+            </Card>
     );
 };
 
@@ -30,5 +65,4 @@ MovieCard.propTypes = {
             Death: PropTypes.string
         })
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
 };

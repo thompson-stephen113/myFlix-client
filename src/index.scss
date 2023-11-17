@@ -1,8 +1,31 @@
-$primary: black;
-$secondary: gold;
+$primary: limegreen;
+$secondary: salmon;
 $body-bg: gray;
+
+:root {
+    --border-bottom: rgba(255, 255, 255, 0.397);
+}
+
 
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~./components/signup-view/signup-view.scss";
 @import "~./components/login-view/login-view.scss";
+@import "~./components/movie-card/movie-card.scss";
+@import "~./components/movie-view/movie-view.scss";
+@import "~./components/profile-view/profile-view.scss";
 @import "~./components/main-view/main-view.scss";
+
+
+.btn,
+.btn-primary,
+.btn-secondary {
+    border-bottom: 4px solid var(--border-bottom);
+    transition: opacity .2s;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--border-bottom);
+    transform: translateY(-0.10em);
+}
