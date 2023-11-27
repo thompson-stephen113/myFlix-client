@@ -1,4 +1,5 @@
 import { createRoot } from "react-dom/client";
+import { FavoriteMoviesProvider } from "./favorite-movies-context";
 import { MainView } from "./components/main-view/main-view";
 import Container from "react-bootstrap/Container";
 
@@ -8,10 +9,10 @@ import "./index.scss";
 // Main component
 const MyFlixApplication = () => {
     return (
-        <Container fluid
-            // style={{border: "1px solid red"}}
-        >
-            <MainView />
+        <Container fluid>
+            <FavoriteMoviesProvider>
+                <MainView />
+            </FavoriteMoviesProvider>
         </Container>
     );
 };
