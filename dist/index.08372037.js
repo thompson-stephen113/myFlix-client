@@ -3098,7 +3098,7 @@
                             }, this.$checkbox, t("div", {
                                 "aria-hidden": "true",
                                 className: "tota11y-plugin-indicator"
-                            }, "✓"), t("div", {
+                            }, "\u2713"), t("div", {
                                 className: "tota11y-plugin-info"
                             }, t("div", {
                                 className: "tota11y-plugin-title"
