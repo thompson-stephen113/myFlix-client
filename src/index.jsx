@@ -8,7 +8,7 @@ import "./index.scss";
 // Main component
 const MyFlixApplication = () => {
     return (
-        <Container
+        <Container fluid
             // style={{border: "1px solid red"}}
         >
             <MainView />

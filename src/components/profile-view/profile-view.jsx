@@ -101,8 +101,6 @@ export const ProfileView = ({ user, token, movie, movies, setUser }) => {
                             favoriteMovies={favoriteMovies}
                             removeFavorite={removeFavorite}
                         />
-
-                        {/* Remove button here? */}
                     </Col>
                 </Row>
             </Container>

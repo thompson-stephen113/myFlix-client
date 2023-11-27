@@ -8,6 +8,7 @@ $body-bg: gray;
 
 
 @import "~bootstrap/scss/bootstrap.scss";
+@import "~./components/navigation-bar/navigation-bar.scss";
 @import "~./components/signup-view/signup-view.scss";
 @import "~./components/login-view/login-view.scss";
 @import "~./components/movie-card/movie-card.scss";

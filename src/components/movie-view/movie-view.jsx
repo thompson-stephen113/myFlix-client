@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useParams } from "react-router";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -7,6 +8,16 @@ import "./movie-view.scss";
 export const MovieView = ({ movies, handleFavorite, removeFavorite }) => {
     const {Title} = useParams();
     const movie = movies.find((movie) => movie.Title === Title);
+
+    const isFavorite = movie && movie.isFavorite;
+
+    const toggleFavorite = () => {
+        if (isFavorite) {
+            removeFavorite(movie.id);
+        } else {
+            handleFavorite(movie.id);
+        }
+    }
 
     if (!movie) {
         return <div>Movie not found</div>
@@ -71,9 +82,9 @@ export const MovieView = ({ movies, handleFavorite, removeFavorite }) => {
             <Button
                 variant="secondary"
                 className="favorite-button"
-                onClick={() => handleFavorite(movie.id)}
+                onClick={toggleFavorite}
             >
-                Favorite
+                {movie.isFavorite ? "Unfavorite" : "Favorite"}
             </Button>
             <br />
             
@@ -89,3 +100,8 @@ export const MovieView = ({ movies, handleFavorite, removeFavorite }) => {
         </div>
     );
 };
+
+MovieView.propTypes = {
+    handleFavorite: PropTypes.func.isRequired,
+    removeFavorite: PropTypes.func.isRequired,
+}

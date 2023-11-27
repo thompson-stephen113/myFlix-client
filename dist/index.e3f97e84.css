@@ -25,7 +25,7 @@
   cursor: pointer;
   color: #000;
   background-color: #32cd32;
-  margin: auto 5px;
+  margin: 5px;
   font-weight: bold;
   display: inline-block;
 }
@@ -34,7 +34,7 @@
   cursor: pointer;
   color: #000;
   background-color: salmon;
-  margin: auto 5px;
+  margin: 5px;
   font-weight: bold;
   display: inline-block;
 }
@@ -136,6 +136,31 @@ a {
   font-size: 20px;
   font-weight: bold;
   display: block;
+}
+
+.form-control {
+  border: 2px solid #000;
+  margin: 15px 10px 0;
+}
+
+.empty-list {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 20px;
+  display: block;
+}
+
+.navbar {
+  padding: 15px;
+}
+
+.container-fluid {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
 }
 
 h2 {
@@ -5983,8 +6008,7 @@ textarea.form-control-lg {
   position: fixed;
   top: 0;
   left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
 }
 
 .modal-dialog {
@@ -13410,6 +13434,15 @@ textarea.form-control-lg {
   }
 }
 
+.navbar {
+  padding: 15px;
+}
+
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+}
+
 .form-label {
   color: #fff;
   text-align: left;
@@ -13464,7 +13497,7 @@ textarea.form-control-lg {
   cursor: pointer;
   color: #000;
   background-color: #32cd32;
-  margin: auto 5px;
+  margin: 5px;
   font-weight: bold;
   display: inline-block;
 }
@@ -13473,7 +13506,7 @@ textarea.form-control-lg {
   cursor: pointer;
   color: #000;
   background-color: salmon;
-  margin: auto 5px;
+  margin: 5px;
   font-weight: bold;
   display: inline-block;
 }
@@ -13592,6 +13625,22 @@ h2, .h2 {
   background-color: #000;
   font-size: 20px;
   font-weight: bold;
+  display: block;
+}
+
+.form-control {
+  border: 2px solid #000;
+  margin: 15px 10px 0;
+}
+
+.empty-list {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 20px;
   display: block;
 }
 
