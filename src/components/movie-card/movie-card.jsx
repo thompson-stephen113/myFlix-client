@@ -5,6 +5,16 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss"
 
 export const MovieCard = ({ movie, handleFavorite, removeFavorite }) => {
+    const isFavorite = movie.isFavorite || false;
+
+    const toggleFavorite = () => {
+        if (isFavorite) {
+            removeFavorite(movie.id);
+        } else {
+            handleFavorite(movie.id);
+        }
+    };
+
     return (
             <Card className="h-100">
                 <Card.Body>
@@ -40,9 +50,9 @@ export const MovieCard = ({ movie, handleFavorite, removeFavorite }) => {
                     <Button
                         variant="secondary"
                         className="favorite-button"
-                        onClick={() => handleFavorite(movie.id)}
+                        onClick={toggleFavorite}
                     >
-                        Favorite
+                        {movie.isFavorite ? "Unfavorite" : "Favorite"}
                     </Button>
                 </Card.Body>
             </Card>
@@ -65,4 +75,6 @@ MovieCard.propTypes = {
             Death: PropTypes.string
         })
     }).isRequired,
+    handleFavorite: PropTypes.func.isRequired,
+    removeFavorite: PropTypes.func.isRequired,
 };
