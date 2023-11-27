@@ -20,4 +20,18 @@
     }
 }
 
+.form-control {
+    margin: 15px 10px 0px 10px;
+    border: 2px solid black;
+}
 
+.empty-list {
+    display: block;
+    text-align: center;
+    margin: 50px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
