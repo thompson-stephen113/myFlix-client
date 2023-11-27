@@ -125,44 +125,6 @@ a {
   font-weight: bold;
 }
 
-.row {
-  justify-content: center;
-}
-
-.row .col-login, .row .col-signup {
-  color: #fff;
-  text-align: center;
-  background-color: #000;
-  font-size: 20px;
-  font-weight: bold;
-  display: block;
-}
-
-.form-control {
-  border: 2px solid #000;
-  margin: 15px 10px 0;
-}
-
-.empty-list {
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: 1px solid #000;
-  border-radius: 5px;
-  margin: 50px;
-  padding: 20px;
-  display: block;
-}
-
-.navbar {
-  padding: 15px;
-}
-
-.container-fluid {
-  --bs-gutter-x: 0;
-  --bs-gutter-y: 0;
-}
-
 h2 {
   text-align: center;
 }
@@ -223,6 +185,44 @@ h2 {
   text-align: center;
   margin: auto;
   font-weight: bold;
+  display: block;
+}
+
+.navbar {
+  padding: 15px;
+}
+
+.container-fluid {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+}
+
+.row {
+  justify-content: center;
+}
+
+.row .col-login, .row .col-signup {
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.form-control {
+  border: 2px solid #000;
+  margin: 15px 10px 0;
+}
+
+.empty-list {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 20px;
   display: block;
 }
 

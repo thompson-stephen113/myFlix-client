@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useFavoriteMovies } from "../../favorite-movies-context";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -16,9 +17,10 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
-
     const [filterTerm, setFilterTerm] = useState("");
     const [filteredMovies, setFilteredMovies] = useState([]);
+    const { favoriteMovies, addFavoriteMovie, removeFavoriteMovie } = useFavoriteMovies();
+
     const handleFilterChange = (e) => {
         setFilterTerm(e.target.value);
     };
@@ -41,6 +43,7 @@ export const MainView = () => {
             })
             .then((updatedUser) => {
                 setUser(updatedUser);
+                addFavoriteMovie(movieId);
                 const updatedMovies = movies.map((movie) =>
                     movie.id === movieId ? { ...movie, isFavorite: true } : movie
                 );
@@ -68,6 +71,7 @@ export const MainView = () => {
             })
             .then((updatedUser) => {
                 setUser(updatedUser);
+                removeFavoriteMovie(movieId);
                 const updatedMovies = movies.map((movie) =>
                     movie.id === movieId ? { ...movie, isFavorite: false } : movie
                 );
@@ -93,10 +97,8 @@ export const MainView = () => {
                 return response.json();
             })
             .then((data) => {
-                const userFavoriteMovies = user?.FavoriteMovies || [];
-
                 const moviesFromApi = data.map((movie) => {
-                    const isFavorite =userFavoriteMovies.includes(movie._id.toString());
+                    const isFavorite = favoriteMovies.includes(movie._id.toString());
                     return {
                         id: movie._id,
                         Title: movie.Title,
@@ -123,7 +125,7 @@ export const MainView = () => {
             .catch((err) => {
                 console.error("Fetch error:", err);
             });
-    }, [token]);
+    }, [token, favoriteMovies]);
 
     // Movie filter
     useEffect(() => {
