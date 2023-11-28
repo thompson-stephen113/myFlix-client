@@ -9,31 +9,44 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 
+// Import styles
 import "./main-view.scss"
 
+// Export MainView
 export const MainView = () => {
+    // Stores logged in user and authentication token locally 
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
+
+    // Stores movies in an array
     const [movies, setMovies] = useState([]);
+
+    // Stores search filter terms and populates an array with the movies that appear as a result of the filter
     const [filterTerm, setFilterTerm] = useState("");
     const [filteredMovies, setFilteredMovies] = useState([]);
+
+    // Uses the custom hook to access the favorite movies context
     const { favoriteMovies, addFavoriteMovie, removeFavoriteMovie } = useFavoriteMovies();
 
+    // Stores a function to change the filtered items based on the filtered term
     const handleFilterChange = (e) => {
         setFilterTerm(e.target.value);
     };
 
     // Add user favorites
     const handleFavorite = (movieId) => {
+        // Fetch user favorites from Heroku app at the URL enpoint
         fetch(`https://myflix-db-app-24338506cd5a.herokuapp.com/users/${user.Username}/favorites-list/${movieId}`, {
+            // Allows authorized users to post to the favorites array
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
         })
+            // Checks validity of response
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -42,8 +55,10 @@ export const MainView = () => {
                 }
             })
             .then((updatedUser) => {
+                // Updates the user and the movie's ID to reflect the addition of the movie to Favorites
                 setUser(updatedUser);
                 addFavoriteMovie(movieId);
+                // Sets the condition of isFavorite of the movie from the list of movies to true
                 const updatedMovies = movies.map((movie) =>
                     movie.id === movieId ? { ...movie, isFavorite: true } : movie
                 );
@@ -56,12 +71,15 @@ export const MainView = () => {
 
     // Remove user favorites
     const removeFavorite = (movieId) => {
+        // Fetch user favorites from Heroku app at the URL enpoint
         fetch(`https://myflix-db-app-24338506cd5a.herokuapp.com/users/${user.Username}/favorites-list/${movieId}`, {
+            // Allows authorized users to delete from the favorites array
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
+            // Checks validity of response
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -70,8 +88,10 @@ export const MainView = () => {
                 }
             })
             .then((updatedUser) => {
+                // Updates the user and the movie's ID to reflect the deletion of the movie from Favorites
                 setUser(updatedUser);
                 removeFavoriteMovie(movieId);
+                // Sets the condition of isFavorite of the movie from the list of movies to false
                 const updatedMovies = movies.map((movie) =>
                     movie.id === movieId ? { ...movie, isFavorite: false } : movie
                 );
@@ -84,12 +104,15 @@ export const MainView = () => {
 
     // Fetch all movies
     useEffect(() => {
+        // Returns users without a token to the default view
         if (!token) {
             return;
         }
 
+        // Fetches all movies from the Heroku URL endpoint
         fetch("https://myflix-db-app-24338506cd5a.herokuapp.com/movies", { headers: { Authorization: `Bearer ${token}` }
         })
+            // Checks validity of the response
             .then((response) => {
                 if(!response.ok) {
                     throw new Error("Network response was not ok");
@@ -97,7 +120,9 @@ export const MainView = () => {
                 return response.json();
             })
             .then((data) => {
+                // Maps all of the information for each movie
                 const moviesFromApi = data.map((movie) => {
+                    // Converts the ID of favorited movies to a string
                     const isFavorite = favoriteMovies.includes(movie._id.toString());
                     return {
                         id: movie._id,
@@ -118,9 +143,10 @@ export const MainView = () => {
                         isFavorite: isFavorite,
                     };
                 });
-
+            
+                // Updates the array of movies with all movies or filtered movies
                 setMovies(moviesFromApi);
-                setFilteredMovies(moviesFromApi)
+                setFilteredMovies(moviesFromApi);
             })
             .catch((err) => {
                 console.error("Fetch error:", err);
@@ -130,6 +156,7 @@ export const MainView = () => {
     // Movie filter
     useEffect(() => {
         const filtered = movies.filter((movie) =>
+            // Converts inputted filter terms to lowercase for consistent searching
             movie.Title.toLowerCase().includes(filterTerm.toLowerCase()) ||
             movie.Genre.Name.toLowerCase().includes(filterTerm.toLowerCase()) ||
             movie.Director.Name.toLowerCase().includes(filterTerm.toLowerCase())
@@ -140,6 +167,7 @@ export const MainView = () => {
     return (
         <BrowserRouter>
             <NavigationBar
+                // Clears locally stored user and token upon logout
                 user={user}
                 onLoggedOut={() => {
                     setUser(null);
@@ -202,6 +230,7 @@ export const MainView = () => {
                                         <>
                                             <Row>
                                                 <Col md={7}>
+                                                    {/* Search filter input field */}
                                                     <input
                                                         type="text"
                                                         placeholder="Filter movies by title, director, or genre"
@@ -213,6 +242,7 @@ export const MainView = () => {
                                             </Row>
 
                                             <Row>
+                                                {/* Displayed results of filtered search */}
                                                 {filteredMovies.length === 0 ? (
                                                     <Col className="empty-list">No movies found.</Col>
                                                 ) : (
